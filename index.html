@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulces de Vinces - Mermeladas Artesanales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1><i class="fas fa-jar"></i> Dulces de Vinces</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#recetas">Recetas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Mermeladas Artesanales 100% Naturales</h2>
+            <p>Elaboradas con frutas seleccionadas y recetas tradicionales de Vinces, Ecuador</p>
+            <a href="#productos" class="btn">Ver Productos</a>
+        </div>
+    </section>
+
+    <!-- Sección Productos -->
+    <section id="productos" class="products">
+        <h2 class="section-title">Nuestras Mermeladas</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-color: #ff6b6b;"></div>
+                <h3>Mermelada de Fresa</h3>
+                <p>Elaborada con fresas frescas de la región. Sabor dulce con un toque cítrico.</p>
+                <span class="price">$4.50</span>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-color: #ffd166;"></div>
+                <h3>Mermelada de Mango</h3>
+                <p>Delicioso mango tropical en su punto perfecto de maduración.</p>
+                <span class="price">$4.00</span>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-color: #06d6a0;"></div>
+                <h3>Mermelada de Piña</h3>
+                <p>Piña natural con un equilibrio perfecto entre dulce y ácido.</p>
+                <span class="price">$4.00</span>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-color: #118ab2;"></div>
+                <h3>Mermelada de Mora</h3>
+                <p>Intenso sabor a moras silvestres, rica en antioxidantes.</p>
+                <span class="price">$5.00</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="about">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Desde 1995, "Dulces de Vinces" elabora mermeladas artesanales siguiendo recetas tradicionales transmitidas por generaciones. Nuestro compromiso es ofrecer productos 100% naturales, sin conservantes artificiales, utilizando frutas seleccionadas de productores locales.</p>
+                <p>Ubicados en el corazón de Vinces, conocida como "La pequeña París", combinamos tradición y calidad en cada frasco que producimos.</p>
+            </div>
+            <div class="about-img"></div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact">
+        <h2 class="section-title">Contáctanos</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Principal, Vinces - Ecuador</p>
+                <p><i class="fas fa-phone"></i> +593 99 999 9999</p>
+                <p><i class="fas fa-envelope"></i> info@dulcesdevinces.com</p>
+                <p><i class="fas fa-clock"></i> Lunes a Sábado: 8:00 - 18:00</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <textarea placeholder="Tu mensaje..." rows="5" required></textarea>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Dulces de Vinces. Todos los derechos reservados.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
