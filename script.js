@@ -4,77 +4,58 @@ const navLinks = document.querySelector('.nav-links');
 
 burger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-    burger.querySelector('i').classList.toggle('fa-bars');
-    burger.querySelector('i').classList.toggle('fa-times');
+    const icon = burger.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
 });
 
 // Cerrar menú al hacer clic en un enlace
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
-        burger.querySelector('i').classList.add('fa-bars');
-        burger.querySelector('i').classList.remove('fa-times');
+        const icon = burger.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
     });
 });
 
-// Formulario de contacto (simulación)
+// Manejo del formulario de contacto CON ENVÍO REAL
 const contactForm = document.getElementById('contactForm');
+const successMessage = document.getElementById('successMessage');
+const closeMessage = document.getElementById('closeMessage');
+
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Obtener valores del formulario
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        // Mostrar indicador de carga
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Enviando...';
+        submitBtn.disabled = true;
         
-        // Simulación de envío (en un proyecto real usarías Formspree, EmailJS, etc.)
-        console.log('Datos del formulario:');
-        console.log('Nombre:', name);
-        console.log('Email:', email);
-        console.log('Mensaje:', message);
-        
-        // Mostrar mensaje de éxito
-        alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-        
-        // Limpiar formulario
-        this.reset();
-    });
-}
-
-// Scroll suave para enlaces internos
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if(targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
+        try {
+            // Enviar formulario usando Formspree (servicio gratuito)
+            const formData = new FormData(this);
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
             });
-        }
-    });
-});
-
-// Efecto de aparición al hacer scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-// Observar elementos para animación
-document.querySelectorAll('.product-card, .about-content, .contact-container').forEach(el => {
-    observer.observe(el);
-});
+            
+            if (response.ok) {
+                // Mostrar mensaje de éxito
+                successMessage.style.display = 'flex';
+                
+                // Limpiar formulario
+                this.reset();
+                
+                // Restaurar botón
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Opcional: Enviar datos a Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_submission', {
