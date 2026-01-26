@@ -49,7 +49,7 @@ const closeMessage = document.getElementById('closeMessage');
 // URL de Formspree - REEMPLAZA CON TU EMAIL REAL
 // Para que funcione: visita https://formspree.io/, regístrate y obtén tu URL
 const FORMSPREE_URL = 'https://formspree.io/f/xpqdqzak'; // URL de ejemplo
-
+method="POST"
 // Alternativa: EmailJS - También gratuita
 // const EMAILJS_SERVICE_ID = 'tuserviceid';
 // const EMAILJS_TEMPLATE_ID = 'tutemplateid';
@@ -238,4 +238,5 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.product-card, .about-content, .contact-container, .recipe-card').forEach(el => {
     observer.observe(el);
 });
+
 
